@@ -143,14 +143,6 @@ public class FileManager {
     }
 
     /**
-     * get the minimum amount required to duel a player
-     * @return the minimum amount
-     */
-    public int getMinDuelBetAmount() {
-        return plugin.getConfig().getInt("duelme.duel.minbetamount");
-    }
-
-    /**
      * get the commands that are run on a duel ending
      * @return list of commands to be run
      */
@@ -362,14 +354,6 @@ public class FileManager {
     }
 
     /**
-     * get the min bet amount needed to send a bet duel request
-     * @return the min bet amount
-     */
-    public double getMinBetAmount() {
-        return plugin.getConfig().getDouble("duelme.duel.minbetamount");
-    }
-
-    /**
      * the time in seconds to countdown before duel starts
      * @return the time in seconds
      */
@@ -488,14 +472,6 @@ public class FileManager {
      */
     public boolean isGUIMenuEnabled() {
         return plugin.getConfig().getBoolean("duelme.duel.guimenuenabled");
-    }
-
-    /**
-     * get the max duel bet amount for a duel with bets
-     * @return the max duel bet amount
-     */
-    public int getMaxBetAmount() {
-        return plugin.getConfig().getInt("duelme.duel.maxbetamount");
     }
 
     /**

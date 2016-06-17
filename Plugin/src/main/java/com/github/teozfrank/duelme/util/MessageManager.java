@@ -216,4 +216,14 @@ public class MessageManager {
         duelRewardMessage = ChatColor.translateAlternateColorCodes('&', duelRewardMessage);
         return duelRewardMessage;
     }
+
+    /**
+     * get the message sent to the player when a player does not want to receive duel requests
+     * @return the message sent to the player when a player does not want to receive duel requests
+     */
+    public String getPlayerWantsToIgnoreDuelRequests() {
+        String duelRewardMessage = fm.getMessages().getString("messages.error.playerwantstoignoreduelrequests");
+        duelRewardMessage = ChatColor.translateAlternateColorCodes('&', duelRewardMessage);
+        return duelRewardMessage;
+    }
 }

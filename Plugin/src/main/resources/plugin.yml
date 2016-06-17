@@ -46,6 +46,7 @@ permissions:
             duelme.player.sendarena: true
             duelme.player.leave: true
             duelme.player.list: true
+            duelme.player.toggle: true
     duelme.player.info:
         description: allows a player to read the info about the duel command
         default: op
@@ -63,6 +64,9 @@ permissions:
         default: op
     duelme.player.list:
         description: allows a player to list the duels and there status
+        default: op
+    duelme.player.toggle:
+        description: allows a player to enable / disable duel requests
         default: op
     duelme.admin.info:
         description: allows an admin to see the information about the dueladmin command

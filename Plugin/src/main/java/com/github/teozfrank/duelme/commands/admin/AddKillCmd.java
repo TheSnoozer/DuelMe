@@ -60,9 +60,9 @@ public class AddKillCmd extends DuelAdminCmd {
             String playerNameIn = args[0];
             SendConsoleMessage.debug(playerNameIn);
             Player player = plugin.getServer().getPlayerExact(playerNameIn);
-            UUID playerUUID = player.getUniqueId();
 
             if(player != null) {
+                UUID playerUUID = player.getUniqueId();
                 String playerName = player.getName();
                 Util.sendMsg(sender, "Adding kill for player: " + ChatColor.AQUA + playerName);
                 mySql.addPlayerKillDeath(playerUUID, playerName, FieldName.KILL);

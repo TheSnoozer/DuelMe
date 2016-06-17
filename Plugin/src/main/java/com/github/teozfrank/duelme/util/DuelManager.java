@@ -26,6 +26,7 @@ package com.github.teozfrank.duelme.util;
 
 import com.github.teozfrank.duelme.main.DuelMe;
 import com.github.teozfrank.duelme.threads.DuelStartThread;
+
 import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.Sign;
@@ -57,6 +58,11 @@ public class DuelManager {
     private List<UUID> deadPlayers;
 
     /**
+     * list of players who don't want to receive duel requests
+     */
+    private List<UUID> ignoreDuelRequestForPlayerUUIDs;
+
+    /**
      * list to hold arena objects
      */
     private List<DuelArena> duelArenas;
@@ -73,6 +79,7 @@ public class DuelManager {
         this.duelArenas = new ArrayList<DuelArena>();
         this.playerData = new HashMap<UUID, PlayerData>();
         this.deadPlayers = new ArrayList<UUID>();
+        this.ignoreDuelRequestForPlayerUUIDs = new ArrayList<UUID>();
         this.mm = plugin.getMessageManager();
     }
 
@@ -316,6 +323,12 @@ public class DuelManager {
         if (duelTarget != null) {
 
             UUID duelTargetUUID = duelTarget.getUniqueId();
+            if(getIgnoreDuelRequestForPlayerUUIDs().contains(duelTargetUUID)){
+                String playerWantsToIgnoreDuelRequests = mm.getPlayerWantsToIgnoreDuelRequests();
+                playerWantsToIgnoreDuelRequests = playerWantsToIgnoreDuelRequests.replaceAll("%target%", duelTargetIn);
+                Util.sendMsg(duelSender, playerWantsToIgnoreDuelRequests);
+                return;
+            }
 
             if (isInDuel(duelTargetUUID)) {
                 String playerAlreadyInDuel = mm.getPlayerAlreadyInDuelMessage();
@@ -831,4 +844,19 @@ public class DuelManager {
         return duelRequests;
     }
 
+	/**
+	 * returns a list of list of players who don't want to receive duel requests
+	 * @return the ignoreDuelRequestForPlayerUUIDs
+	 */
+	public List<UUID> getIgnoreDuelRequestForPlayerUUIDs() {
+		return ignoreDuelRequestForPlayerUUIDs;
+	}
+
+	public void addPlayerForIgnoreDuelRequest(UUID playerUUID){
+		ignoreDuelRequestForPlayerUUIDs.add(playerUUID);
+	}
+
+	public void removePlayerForIgnoreDuelRequest(UUID playerUUID){
+		ignoreDuelRequestForPlayerUUIDs.remove(playerUUID);
+	}
 }

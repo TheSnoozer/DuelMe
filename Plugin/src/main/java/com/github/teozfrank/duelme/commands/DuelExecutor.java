@@ -42,6 +42,7 @@ public class DuelExecutor extends CmdExecutor implements CommandExecutor {
         DuelCmd leave = new LeaveCmd(plugin, "duelme.player.leave");
         DuelCmd list = new ListCmd(plugin, "duelme.player.list");
         DuelCmd about = new AboutCmd(plugin, "duelme.player.info");
+        DuelCmd toggle = new ToggleCmd(plugin, "duelme.player.toggle");
 
         addCmd("accept", accept, new String[]{
                 "a"
@@ -58,6 +59,8 @@ public class DuelExecutor extends CmdExecutor implements CommandExecutor {
         addCmd("list", list);
 
         addCmd("about", about);
+
+        addCmd("toggle", toggle);
     }
 
     @Override
@@ -78,6 +81,7 @@ public class DuelExecutor extends CmdExecutor implements CommandExecutor {
                     Util.sendEmptyMsg(sender, ChatColor.GREEN + "/duel leave - " + ChatColor.GOLD + "leave a duel.");
                     Util.sendEmptyMsg(sender, ChatColor.GREEN + "/duel list - " + ChatColor.GOLD + "lists duel arenas with their status(es).");
                     Util.sendEmptyMsg(sender, ChatColor.GREEN + "/duel about - " + ChatColor.GOLD + "more about this plugin.");
+                    Util.sendEmptyMsg(sender, ChatColor.GREEN + "/duel toggle - " + ChatColor.GOLD + "enables / disables duel requests.");
                     Util.sendEmptyMsg(sender, "");
                     Util.sendCredits(sender);
                     Util.sendEmptyMsg(sender, Util.LINE_BREAK);

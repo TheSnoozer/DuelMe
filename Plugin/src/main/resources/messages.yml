@@ -26,3 +26,4 @@ messages:
         forcefullycancelled: '&cDuel was forcefully cancelled'
         commandnotallowed: '&cSorry but you cannot use this command during a duel.'
         cannottduelself: '&cSorry but you cannot duel yourself.'
+        playerwantstoignoreduelrequests: '&cSorry you currently can not duel this player, since he does not want to be disturbed.'

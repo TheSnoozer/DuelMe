@@ -15,8 +15,6 @@ duelme:
        seperateinventories: true
        rightclicktoduel: false
        dropitemsondeath: false
-       minbetamount: 500
-       maxbetamount: 1000
        guimenuenabled: true
        surroundmaterial: BARRIER
     announce:
